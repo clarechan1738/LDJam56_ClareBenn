@@ -75,8 +75,6 @@ public class GameManager : MonoBehaviour
             GameWon();
         }
 
-
-
         var ts = TimeSpan.FromSeconds(timer);
         timerTxt.text = string.Format("{0:00}:{1:00}", ts.Minutes, ts.Seconds);
         timerTxt.color = Color.white;

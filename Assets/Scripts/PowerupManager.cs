@@ -26,8 +26,10 @@ public class PowerupManager : MonoBehaviour
 
     private void Update()
     {
+        //Gets Game Manager Score Variable
         score = gMgr.score;
 
+        //When Score Milestones Are Hit, Upgrades Are Applied
         if (score == 10)
         {
             powerUps--;
@@ -112,8 +114,10 @@ public class PowerupManager : MonoBehaviour
 
     public IEnumerator Countdown(int powerupNum)
     {
+        //Grabs The Specific Powerup Applied (E.G. At 10 Kills, 20...)
         switch(powerupNum)
         {
+            //Swaps The Text At The Top To Alert Player They Are Upgraded
             case 0:
                 powerupTxt.text = "You Are Now A Bit Faster...";
                 break;
@@ -148,6 +152,8 @@ public class PowerupManager : MonoBehaviour
                 powerupTxt.text = "You Are At Maximum Power!";
                 break;
         }
+
+        //Waits 3 Seconds Then Changes Text Back To Blank
         yield return new WaitForSeconds(3.0f);
 
         powerupTxt.text = " ";

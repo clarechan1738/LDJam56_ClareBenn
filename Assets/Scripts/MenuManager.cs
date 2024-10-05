@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
 
+    //Literally Just Loads 3 Scenes.
     public void Play()
     {
         SceneManager.LoadScene("Main");

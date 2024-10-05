@@ -24,13 +24,18 @@ public class CreditsMgr : MonoBehaviour
     private void Awake()
     {
         sScript = FindAnyObjectByType<ScoreScript>();
+
+        //Converts The Score To A String & Displays It With Added Zeroes For Appearance
         totalScore = sScript.GetScore().ToString();
         scoreTxt.text = totalScore + "0000";
+
+        //Deletes Itself After Information Is Brought In
         Destroy(sScript.gameObject);
     }
 
     void Update()
     {
+        //Counts Down For The Back Button To Display
         if(countdown > 0)
         {
             countdown -= Time.deltaTime;

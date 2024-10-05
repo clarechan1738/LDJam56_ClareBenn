@@ -18,11 +18,13 @@ public class Orb : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        //Moves The Orbs In The Direction The Player Is Facing
         rb.AddForce(transform.right * orbSpeed, ForceMode2D.Impulse);
     }
 
     void Update()
     {
+        //Destroys Itself After 2 Seconds Of No Collisions
         if (lifespan > 0)
         {
             lifespan -= Time.deltaTime;
@@ -40,6 +42,7 @@ public class Orb : MonoBehaviour
     {
         if(collision.gameObject.tag == "Enemy")
         {
+            //Destroys A Bullet Upon Hitting An Enemy & Adds 1 To The Score Count
             Destroy(gameObject);
             Destroy(collision.gameObject);
             GameManager.instance.score++;

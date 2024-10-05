@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+        //Flips Enemy Sprite Rotation Based On Direction Player Is In (WIP)
         if(player.transform.position.x < transform.position.x)
         {
             this.transform.rotation = Quaternion.Euler(new Vector3(180f, 0f));
@@ -36,12 +37,16 @@ public class Enemy : MonoBehaviour
             this.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f));
         }
 
+        //Checks The Distance Between Enemy & Player
         distance = Vector2.Distance(transform.position, player.transform.position);
         Vector2 direction = player.transform.position - transform.position;
         direction.Normalize();
 
+        //Moves The Enemy To The Player Location
         transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, enemyMoveSpeed * Time.deltaTime);
 
+
+        //If The Buffer Is Not On Cooldown
         if(!cooldown)
         {
             bufferTimer = 1.0f;
