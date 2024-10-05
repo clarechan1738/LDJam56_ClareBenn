@@ -78,7 +78,7 @@ public class MovementScript : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Q))
         {
-            animator.SetTrigger("Attack");
+            animator.SetTrigger("attack");
             Instantiate(orb, offset.position, transform.rotation);
         }
     }
