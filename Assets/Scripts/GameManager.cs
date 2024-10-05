@@ -10,6 +10,10 @@ using UnityEngine.SocialPlatforms.Impl;
 public class GameManager : MonoBehaviour
 {
     public int playerHealth = 100;
+    public int maxHealth = 100;
+
+    public HealthBar healthBar;
+
     private float timer = 180.0f;
 
     [SerializeField]
@@ -40,6 +44,12 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         sScript = FindAnyObjectByType<ScoreScript>();
+    }
+
+    private void Start()
+    {
+        playerHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     void Update()
