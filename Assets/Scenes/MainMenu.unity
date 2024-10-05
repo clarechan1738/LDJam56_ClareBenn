@@ -577,8 +577,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Insert Title Here...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3924384df22c990448b9a83e67ebad91, type: 2}
-  m_sharedMaterial: {fileID: 4751087361196757651, guid: 3924384df22c990448b9a83e67ebad91, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 31dcae8524335524693e475655a034fd, type: 2}
+  m_sharedMaterial: {fileID: -1804132121541177530, guid: 31dcae8524335524693e475655a034fd, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -711,8 +711,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Play
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3924384df22c990448b9a83e67ebad91, type: 2}
-  m_sharedMaterial: {fileID: 4751087361196757651, guid: 3924384df22c990448b9a83e67ebad91, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4930e0e1e74e92f4089f2ae961fcdd2f, type: 2}
+  m_sharedMaterial: {fileID: -5434819531929025486, guid: 4930e0e1e74e92f4089f2ae961fcdd2f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

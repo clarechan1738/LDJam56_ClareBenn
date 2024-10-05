@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class MovementScript : MonoBehaviour
 {
@@ -12,8 +13,13 @@ public class MovementScript : MonoBehaviour
     private float horizontal, vertical;
     public Animator animator;
 
-    private bool flipSpriteH = false;
-    private bool flipSpriteV = false;
+    public bool flipSpriteH = false;
+    public bool flipSpriteV = false;
+
+    //Orb & Offset For Spawning
+    public Orb orb;
+    public Transform offset;
+
 
     private void Awake()
     {
@@ -72,7 +78,8 @@ public class MovementScript : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Q))
         {
-            animator.SetTrigger("attack");
+            animator.SetTrigger("Attack");
+            Instantiate(orb, offset.position, transform.rotation);
         }
     }
 

@@ -39,10 +39,8 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Collision Detected");
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("Collision With Player Detected");
             GameManager.instance.playerHealth -= 1;
         }
         else if (GameManager.instance.playerHealth <= 0)

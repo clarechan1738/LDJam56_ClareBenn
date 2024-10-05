@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4f76d1b6e05a9214680ad4019c9242a4
+guid: 1a63f7018325ab04ebc7593993676ef6
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Qwitcher Grypen
+  - Kranky
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
