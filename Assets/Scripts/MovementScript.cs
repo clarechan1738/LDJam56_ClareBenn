@@ -72,8 +72,7 @@ public class MovementScript : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Q))
         {
-            animator.SetBool("attacking", true);
-            animator.Play("Attack");
+            animator.SetTrigger("attack");
         }
     }
 
