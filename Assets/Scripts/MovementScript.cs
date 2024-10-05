@@ -8,7 +8,7 @@ public class MovementScript : MonoBehaviour
 {
 
     //Acceleration Speed, Axis & Rigidbody
-    private float acceleration = 8f;
+    public float acceleration = 8f;
     private Rigidbody2D charRB;
     private float horizontal, vertical;
     public Animator animator;

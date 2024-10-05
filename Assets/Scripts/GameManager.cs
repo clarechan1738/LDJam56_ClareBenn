@@ -26,6 +26,11 @@ public class GameManager : MonoBehaviour
 
     private ScoreScript sScript;
 
+    [SerializeField]
+    private TextMeshProUGUI playerHealthTxt;
+    [SerializeField]
+    private TextMeshProUGUI maxHealthTxt;
+
     private static GameManager _instance;
     public static GameManager instance
     {
@@ -44,18 +49,24 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         sScript = FindAnyObjectByType<ScoreScript>();
+        playerHealthTxt.text = " ";
+        maxHealthTxt.text = " ";
     }
 
     private void Start()
     {
+
         playerHealth = maxHealth;
+
         healthBar.SetMaxHealth(maxHealth);
     }
 
     void Update()
     {
+        playerHealthTxt.text = playerHealth.ToString();
+        maxHealthTxt.text = maxHealth.ToString();
 
-        if(timer > 0)
+        if (timer > 0)
         {
             timer -= Time.deltaTime * 1.0f;
         }
