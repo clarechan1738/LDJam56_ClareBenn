@@ -18,8 +18,10 @@ public class MovementScript : MonoBehaviour
 
     //Orb & Offset For Spawning
     public Orb orb;
+    public Orb largeOrb;
     public Transform offset;
 
+    private float timeStart;
 
     private void Awake()
     {
@@ -80,6 +82,15 @@ public class MovementScript : MonoBehaviour
         {
             animator.SetTrigger("attack");
             Instantiate(orb, offset.position, transform.rotation);
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            timeStart = Time.time;
+        }
+        if(Input.GetKeyUp(KeyCode.E) && Time.time - timeStart > 3.0f)
+        {
+            animator.SetTrigger("attack");
+            Instantiate(largeOrb, offset.position, transform.rotation);
         }
     }
 

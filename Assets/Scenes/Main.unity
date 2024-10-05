@@ -1554,7 +1554,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -81.39, y: -58}
+  m_AnchoredPosition: {x: -81.38989, y: -58}
   m_SizeDelta: {x: 162.78, y: 63.2321}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1096321012
@@ -3026,6 +3026,50 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2082091537
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2082091539}
+  - component: {fileID: 2082091538}
+  m_Layer: 0
+  m_Name: PowerupManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2082091538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082091537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 631c6452010f12c49b66710a7fccc529, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &2082091539
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082091537}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 949.83575, y: 498.69885, z: -15.738197}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &2025793704646211936
 Animator:
   serializedVersion: 5
@@ -3124,6 +3168,7 @@ MonoBehaviour:
   flipSpriteH: 0
   flipSpriteV: 0
   orb: {fileID: 963045908403238067, guid: e823ddaa4a7ee9b4f944746c88c840e9, type: 3}
+  largeOrb: {fileID: 963045908403238067, guid: 359b30384092e9440b9f8f8efbd92a46, type: 3}
   offset: {fileID: 8247915770891872584}
 --- !u!4 &3440402357600733060
 Transform:
@@ -3267,3 +3312,4 @@ SceneRoots:
   - {fileID: 565437657}
   - {fileID: 312221010}
   - {fileID: 1283998021}
+  - {fileID: 2082091539}
