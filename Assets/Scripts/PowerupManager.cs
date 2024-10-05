@@ -66,7 +66,7 @@ public class PowerupManager : MonoBehaviour
         if (score == 60)
         {
             powerUps--;
-            gMgr.maxHealth = 115;
+            gMgr.playerHealth = gMgr.maxHealth;
             StopAllCoroutines();
             StartCoroutine(Countdown(5));
         }
@@ -124,13 +124,13 @@ public class PowerupManager : MonoBehaviour
                 powerupTxt.text = "Speed Increased...";
                 break;
             case 3:
-                powerupTxt.text = "Health Increased...";
+                powerupTxt.text = "Max Health Increased...";
                 break;
             case 4:
                 powerupTxt.text = "Speed Increased...";
                 break;
             case 5:
-                powerupTxt.text = "Health Increased...";
+                powerupTxt.text = "Health Refreshed...";
                 break;
             case 6:
                 powerupTxt.text = "Speed Increased Significantly...";

@@ -87,7 +87,7 @@ public class MovementScript : MonoBehaviour
         {
             timeStart = Time.time;
         }
-        if(Input.GetKeyUp(KeyCode.E) && Time.time - timeStart > 3.0f)
+        if(Input.GetKeyUp(KeyCode.E) && Time.time - timeStart > 0.5f)
         {
             animator.SetTrigger("attack");
             Instantiate(largeOrb, offset.position, transform.rotation);
