@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
 
     public GameObject player;
-    private float enemyMoveSpeed = 7.0f;
+    private float enemyMoveSpeed = 6.0f;
 
     private float distance;
 
@@ -35,5 +35,19 @@ public class Enemy : MonoBehaviour
         direction.Normalize();
 
         transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, enemyMoveSpeed * Time.deltaTime);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("Collision Detected");
+        if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log("Collision With Player Detected");
+            GameManager.instance.playerHealth -= 1;
+        }
+        else if (GameManager.instance.playerHealth <= 0)
+        {
+            GameManager.instance.GameOver();
+        }
     }
 }

@@ -82,16 +82,4 @@ public class MovementScript : MonoBehaviour
         charRB.velocity.Normalize();
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == "Enemy" && GameManager.instance.playerHealth <= 0)
-        {
-            GameManager.instance.GameOver();
-        }
-        else if(collision.gameObject.tag == "Enemy")
-        {
-            GameManager.instance.playerHealth -= 1;
-        }
-    }
-
 }

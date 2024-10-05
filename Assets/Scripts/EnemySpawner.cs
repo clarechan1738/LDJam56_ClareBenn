@@ -10,6 +10,9 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private float enemySpawnTime = 1.0f;
 
+    private int currEnemies = 0;
+    private int maxEnemies = 10;
+
     private void Start()
     {
         StartCoroutine(spawnEnemies(enemySpawnTime, enemy));
@@ -18,7 +21,11 @@ public class EnemySpawner : MonoBehaviour
     private IEnumerator spawnEnemies(float interval, GameObject enemy)
     {
         yield return new WaitForSeconds(interval);
-        GameObject newEnemy = Instantiate(enemy, new Vector3(Random.Range(-10, 20), Random.Range(-20, 10), 0), Quaternion.identity);
+        if(currEnemies < maxEnemies)
+        {
+            GameObject newEnemy = Instantiate(enemy, new Vector3(Random.Range(-10, 20), Random.Range(-20, 10), 0), Quaternion.identity);
+            currEnemies++;
+        }
         StartCoroutine(spawnEnemies(enemySpawnTime, enemy));
 
     }
