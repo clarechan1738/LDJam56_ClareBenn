@@ -32,6 +32,7 @@ public class MovementScript : MonoBehaviour
         animator.SetFloat("vertAccel", Mathf.Abs(vertical));
 
 
+
         //Sprite Direction Logic
         if (horizontal < 0)
         {
@@ -69,13 +70,17 @@ public class MovementScript : MonoBehaviour
             this.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f));
         }
 
-
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            animator.SetBool("attacking", true);
+            animator.Play("Attack");
+        }
     }
 
     private void FixedUpdate()
     {
-        //
         charRB.velocity = new Vector2(horizontal * acceleration, vertical * acceleration);
+        charRB.velocity.Normalize();
     }
 
 }
