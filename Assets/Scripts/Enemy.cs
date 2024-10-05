@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
 
     private float bufferTimer = 1.0f;
 
+
     void Update()
     {
         if(player.transform.position.x < transform.position.x)
@@ -61,11 +62,6 @@ public class Enemy : MonoBehaviour
                 GameManager.instance.playerHealth -= 1;
                 GameManager.instance.healthBar.SetHealth(GameManager.instance.playerHealth);
                 cooldown = true;
-            }
-            else
-            {
-                //Wait For Time To Run Down
-                
             }
            
         }
