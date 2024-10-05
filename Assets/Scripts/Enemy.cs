@@ -59,7 +59,7 @@ public class Enemy : MonoBehaviour
         {
             if(!cooldown)
             {
-                GameManager.instance.playerHealth -= 1;
+                GameManager.instance.playerHealth -= 5;
                 GameManager.instance.healthBar.SetHealth(GameManager.instance.playerHealth);
                 cooldown = true;
             }
