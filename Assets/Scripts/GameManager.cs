@@ -5,6 +5,7 @@ using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI timerTxt;
 
+    public int score = 0;
+
+    private ScoreScript sScript;
 
     private static GameManager _instance;
     public static GameManager instance
@@ -32,6 +36,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
+    private void Awake()
+    {
+        sScript = FindAnyObjectByType<ScoreScript>();
+    }
 
     void Update()
     {
@@ -58,6 +67,8 @@ public class GameManager : MonoBehaviour
 
     public void GameWon()
     {
+        sScript.SetScore(score);
+
         SceneManager.LoadScene("Credits");
     }
 }

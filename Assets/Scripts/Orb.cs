@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Orb : MonoBehaviour
 {
@@ -9,6 +10,11 @@ public class Orb : MonoBehaviour
 
     private float lifespan = 2.0f;
 
+    public ScoreScript sScript;
+    private void Awake()
+    {
+        sScript = GetComponent<ScoreScript>();
+    }
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -36,6 +42,7 @@ public class Orb : MonoBehaviour
         {
             Destroy(gameObject);
             Destroy(collision.gameObject);
+            GameManager.instance.score++;
         }
 
     }

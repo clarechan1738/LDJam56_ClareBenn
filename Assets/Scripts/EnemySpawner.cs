@@ -26,6 +26,12 @@ public class EnemySpawner : MonoBehaviour
             GameObject newEnemy = Instantiate(enemy, new Vector3(Random.Range(-10, 20), Random.Range(-20, 10), 0), Quaternion.identity);
             currEnemies++;
         }
+        if(currEnemies >= 10)
+        {
+            maxEnemies = 10;
+            currEnemies = 0;       
+        }
+
         StartCoroutine(spawnEnemies(enemySpawnTime, enemy));
 
     }

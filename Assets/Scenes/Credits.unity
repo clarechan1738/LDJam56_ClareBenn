@@ -323,6 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cefc15cf355cae74b9dbca823bdb6d9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreTxt: {fileID: 1871023123}
   backButton: {fileID: 861544349}
 --- !u!1 &557195389
 GameObject:
