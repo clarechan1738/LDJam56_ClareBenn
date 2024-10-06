@@ -15,21 +15,32 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private float largeEnemySpawnTime = 10.0f;
 
-    private void Start()
-    {
-        //Starts Spawning The Enemies
-        StartCoroutine(spawnEnemies(enemySpawnTime, enemy));
-        StartCoroutine(spawnEnemies(largeEnemySpawnTime, largeEnemy));
-    }
+    public int currentEnemies = 0;
+    private int maxEnemies = 10;
 
-    private IEnumerator spawnEnemies(float interval, GameObject enemy)
+    private void Update()
     {
-        yield return new WaitForSeconds(interval);
-        //Instantiates An Enemy At A Pseudo Random Location
-        GameObject newEnemy = Instantiate(enemy, new Vector3(Random.Range(-10, 20), Random.Range(-20, 10), 0), Quaternion.identity);
+        if(enemySpawnTime > 0)
+        {
+            enemySpawnTime -= Time.deltaTime * 1.0f;
+        }
+        else if(enemySpawnTime <= 0 && currentEnemies <= maxEnemies)
+        {
+            Instantiate(enemy, new Vector3(Random.Range(-10, 20), Random.Range(-20, 10), 0), Quaternion.identity);
+            currentEnemies++;
+            enemySpawnTime = 1.0f;
+        }
 
-        //Starts The Spawn Cycle Again
-        StartCoroutine(spawnEnemies(enemySpawnTime, enemy));
+        if (largeEnemySpawnTime > 0)
+        {
+            largeEnemySpawnTime -= Time.deltaTime * 1.0f;
+        }
+        else if (largeEnemySpawnTime <= 0 && currentEnemies <= maxEnemies)
+        {
+            Instantiate(largeEnemy, new Vector3(Random.Range(-10, 20), Random.Range(-20, 10), 0), Quaternion.identity);
+            currentEnemies++;
+            largeEnemySpawnTime = 10.0f;
+        }
 
     }
 

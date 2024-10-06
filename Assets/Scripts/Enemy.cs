@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -62,6 +63,10 @@ public class Enemy : MonoBehaviour
         else if(cooldown && bufferTimer > 0)
         {
             bufferTimer -= Time.deltaTime;
+            if(bufferTimer == 0)
+            {
+                cooldown = false;
+            }
         }
 
     }
@@ -79,6 +84,13 @@ public class Enemy : MonoBehaviour
                 cooldown = true;
             }
            
+        }
+        else if(collision.gameObject.tag == "LargeEnemy")
+        {
+            mScript.source.PlayOneShot(playerHurt);
+            GameManager.instance.playerHealth -= 10;
+            GameManager.instance.healthBar.SetHealth(GameManager.instance.playerHealth);
+            cooldown = true;
         }
         //Ends Game If Player Health Is 0
         else if (GameManager.instance.playerHealth <= 0)

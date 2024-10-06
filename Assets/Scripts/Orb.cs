@@ -18,6 +18,8 @@ public class Orb : MonoBehaviour
 
     public AudioClip enemyDead;
 
+    public EnemySpawner spawnScript;
+
     private void Awake()
     {
         sScript = GetComponent<ScoreScript>();
@@ -55,6 +57,8 @@ public class Orb : MonoBehaviour
             Destroy(gameObject);
             Destroy(collision.gameObject);
             GameManager.instance.score++;
+            spawnScript.currentEnemies--;
+            
         }
         if(collision.gameObject.tag == "LargeEnemy")
         {
@@ -64,6 +68,7 @@ public class Orb : MonoBehaviour
                 Destroy(gameObject);
                 Destroy(collision.gameObject);
                 GameManager.instance.score++;
+                spawnScript.currentEnemies--;
             }
             else
             {
