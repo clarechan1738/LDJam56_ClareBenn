@@ -9,6 +9,7 @@ public class CamScript : MonoBehaviour
 
     void Update()
     {
+        //Follows Player's Position
         transform.position = player.transform.position + new Vector3(0, 1, -5);
     }
 }

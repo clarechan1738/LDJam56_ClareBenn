@@ -55,17 +55,17 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-
         playerHealth = maxHealth;
-
         healthBar.SetMaxHealth(maxHealth);
     }
 
     void Update()
     {
+        //Update Text In Scene To Display The Current & Maximum Health
         playerHealthTxt.text = playerHealth.ToString();
         maxHealthTxt.text = maxHealth.ToString();
 
+        //Counts Down Timer, When It Ends & Player Survives, Loads The Win Function
         if (timer > 0)
         {
             timer -= Time.deltaTime * 1.0f;
@@ -75,11 +75,13 @@ public class GameManager : MonoBehaviour
             GameWon();
         }
 
+        //Displays The Timer In Minutes & Seconds Format
         var ts = TimeSpan.FromSeconds(timer);
         timerTxt.text = string.Format("{0:00}:{1:00}", ts.Minutes, ts.Seconds);
         timerTxt.color = Color.white;
     }
 
+    //Ends The Game
     public void GameOver()
     {
         Destroy(playerObj);

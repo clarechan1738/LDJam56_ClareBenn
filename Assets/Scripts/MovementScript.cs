@@ -78,11 +78,13 @@ public class MovementScript : MonoBehaviour
             this.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f));
         }
 
+        //Shoots A Small Orb & Plays Attack Animation When 'Q' Pressed
         if(Input.GetKeyDown(KeyCode.Q))
         {
             animator.SetTrigger("attack");
             Instantiate(orb, offset.position, transform.rotation);
         }
+        //Shoots Large Orb When Held For .5 Seconds
         if (Input.GetKeyDown(KeyCode.E))
         {
             timeStart = Time.time;
@@ -96,6 +98,7 @@ public class MovementScript : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //Handles The Character Movement & Acceleration
         charRB.velocity = new Vector2(horizontal * acceleration, vertical * acceleration);
         charRB.velocity.Normalize();
     }

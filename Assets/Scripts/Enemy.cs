@@ -46,11 +46,12 @@ public class Enemy : MonoBehaviour
         transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, enemyMoveSpeed * Time.deltaTime);
 
 
-        //If The Buffer Is Not On Cooldown
+        //If The Buffer Is Not On Cooldown Reset The Timer
         if(!cooldown)
         {
             bufferTimer = 1.0f;
         }
+        //Otherwise, Count It Down
         else if(cooldown && bufferTimer > 0)
         {
             bufferTimer -= Time.deltaTime;
@@ -62,6 +63,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            //If No Cooldown, Subtract Health On Collision With Player
             if(!cooldown)
             {
                 GameManager.instance.playerHealth -= 5;
@@ -70,6 +72,7 @@ public class Enemy : MonoBehaviour
             }
            
         }
+        //Ends Game If Player Health Is 0
         else if (GameManager.instance.playerHealth <= 0)
         {
             GameManager.instance.GameOver();
