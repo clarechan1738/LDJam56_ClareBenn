@@ -31,6 +31,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI maxHealthTxt;
 
+    [SerializeField]
+    private GameObject pauseMenu;
+
 
 
     private static GameManager _instance;
@@ -50,6 +53,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        Time.timeScale = 1;
         sScript = FindAnyObjectByType<ScoreScript>();
         playerHealthTxt.text = " ";
         maxHealthTxt.text = " ";
@@ -61,8 +65,29 @@ public class GameManager : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
     }
 
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+        pauseMenu.SetActive(true);
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+        pauseMenu.SetActive(false);
+    }
+
     void Update()
     {
+        if(Time.timeScale == 1 && Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseGame();
+        }
+        else if(Time.timeScale == 0 && Input.GetKeyDown(KeyCode.Escape))
+        {
+            ResumeGame();
+        }
+
         //Update Text In Scene To Display The Current & Maximum Health
         playerHealthTxt.text = playerHealth.ToString();
         maxHealthTxt.text = maxHealth.ToString();

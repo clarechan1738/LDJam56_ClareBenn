@@ -731,7 +731,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -966.58, y: -540.01}
+  m_AnchoredPosition: {x: -961.56, y: -541.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &291338221
@@ -826,6 +826,9 @@ MonoBehaviour:
   orb: {fileID: 963045908403238067, guid: e823ddaa4a7ee9b4f944746c88c840e9, type: 3}
   largeOrb: {fileID: 963045908403238067, guid: 359b30384092e9440b9f8f8efbd92a46, type: 3}
   offset: {fileID: 61105779}
+  source: {fileID: 0}
+  qShot: {fileID: 0}
+  eShot: {fileID: 0}
 --- !u!50 &291338224
 Rigidbody2D:
   serializedVersion: 4

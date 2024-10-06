@@ -23,6 +23,7 @@ public class CreditsMgr : MonoBehaviour
 
     private void Awake()
     {
+        Time.timeScale = 1;
         sScript = FindAnyObjectByType<ScoreScript>();
 
         //Converts The Score To A String & Displays It With Added Zeroes For Appearance
