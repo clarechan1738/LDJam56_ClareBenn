@@ -10,10 +10,18 @@ public class Orb : MonoBehaviour
 
     private float lifespan = 2.0f;
 
+    private int enemyHp = 3;
+
     public ScoreScript sScript;
+
+    private MovementScript mScript;
+
+    public AudioClip enemyDead;
+
     private void Awake()
     {
         sScript = GetComponent<ScoreScript>();
+        mScript = FindAnyObjectByType<MovementScript>();
     }
     private void Start()
     {
@@ -42,10 +50,25 @@ public class Orb : MonoBehaviour
     {
         if(collision.gameObject.tag == "Enemy")
         {
+            mScript.source.PlayOneShot(enemyDead);
             //Destroys A Bullet Upon Hitting An Enemy & Adds 1 To The Score Count
             Destroy(gameObject);
             Destroy(collision.gameObject);
             GameManager.instance.score++;
+        }
+        if(collision.gameObject.tag == "LargeEnemy")
+        {
+            if(enemyHp <= 0)
+            {
+                mScript.source.PlayOneShot(enemyDead);
+                Destroy(gameObject);
+                Destroy(collision.gameObject);
+                GameManager.instance.score++;
+            }
+            else
+            {
+                enemyHp--;
+            }
         }
 
     }

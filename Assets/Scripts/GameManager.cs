@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI maxHealthTxt;
 
+
+
     private static GameManager _instance;
     public static GameManager instance
     {

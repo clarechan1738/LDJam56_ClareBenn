@@ -23,10 +23,16 @@ public class MovementScript : MonoBehaviour
 
     private float timeStart;
 
+    public AudioSource source;
+    public AudioClip qShot;
+    public AudioClip eShot;
+
     private void Awake()
     {
         //Gets The Rigidbody From The Object
         charRB = GetComponent<Rigidbody2D>();
+
+        source = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -82,6 +88,7 @@ public class MovementScript : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Q))
         {
             animator.SetTrigger("attack");
+            source.PlayOneShot(qShot);
             Instantiate(orb, offset.position, transform.rotation);
         }
         //Shoots Large Orb When Held For .5 Seconds
@@ -92,10 +99,11 @@ public class MovementScript : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.E) && Time.time - timeStart > 0.5f)
         {
             animator.SetTrigger("attack");
+            source.PlayOneShot(eShot);
             Instantiate(largeOrb, offset.position, transform.rotation);
         }
     }
-
+    
     private void FixedUpdate()
     {
         //Handles The Character Movement & Acceleration

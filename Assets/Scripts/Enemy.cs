@@ -16,6 +16,13 @@ public class Enemy : MonoBehaviour
 
     private float bufferTimer = 1.0f;
 
+    private MovementScript mScript;
+    public AudioClip playerHurt;
+
+    private void Awake()
+    {
+        mScript = FindAnyObjectByType<MovementScript>();
+    }
 
     void Update()
     {
@@ -66,6 +73,7 @@ public class Enemy : MonoBehaviour
             //If No Cooldown, Subtract Health On Collision With Player
             if(!cooldown)
             {
+                mScript.source.PlayOneShot(playerHurt);
                 GameManager.instance.playerHealth -= 5;
                 GameManager.instance.healthBar.SetHealth(GameManager.instance.playerHealth);
                 cooldown = true;
