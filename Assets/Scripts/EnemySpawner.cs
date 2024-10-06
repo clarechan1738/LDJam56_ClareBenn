@@ -6,9 +6,14 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField]
     private GameObject enemy;
+    [SerializeField] 
+    private GameObject largeEnemy;
 
+    //Spawn Small Enemy Every Second & Large Enemy Every 10 Seconds
     [SerializeField]
     private float enemySpawnTime = 1.0f;
+    [SerializeField]
+    private float largeEnemySpawnTime = 10.0f;
 
     private int currEnemies = 0;
     private int maxEnemies = 10;
@@ -17,6 +22,7 @@ public class EnemySpawner : MonoBehaviour
     {
         //Starts Spawning The Enemies
         StartCoroutine(spawnEnemies(enemySpawnTime, enemy));
+        StartCoroutine(spawnEnemies(largeEnemySpawnTime, largeEnemy));
     }
 
     private IEnumerator spawnEnemies(float interval, GameObject enemy)
